@@ -1,0 +1,82 @@
+	/* General Button Style */
+    .hex-btn {
+        color: white;
+        position: absolute;
+        display: block;
+        background: transparent;
+        width: 300px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 15px;
+        text-decoration: none;
+        text-transform: uppercase;
+        margin: 40px auto;
+        transition: transform 0.2s;
+
+    }
+
+    .hex-btn:before,
+    .hex-btn:after {
+        width: 300px;
+        left: 0px;
+        height: 27px;
+        z-index: -1;
+    }
+
+    .hex-button-color {
+        color: white;
+    }
+
+    /* Button Border Style */
+
+    .hex-btn-back:before,
+    .hex-btn-back:after {
+        border: 3px solid white;
+    }
+
+    .hex-btn-color:before,
+    .hex-btn-color:after {
+        border: 3px solid white;
+    }
+
+
+    .hex-btn:before {
+        position: absolute;
+        content: '';
+        border-bottom: none;
+        -webkit-transform: perspective(15px) rotateX(5deg);
+        -moz-transform: perspective(15px) rotateX(5deg);
+        transform: perspective(15px) rotateX(5deg);
+    }
+
+    .hex-btn:after {
+        position: absolute;
+        top: 32px;
+        content: '';
+        border-top: none;
+        -webkit-transform: perspective(15px) rotateX(-5deg);
+        -moz-transform: perspective(15px) rotateX(-5deg);
+        transform: perspective(15px) rotateX(-5deg);
+    }
+
+    /* Button Hover Style */
+
+
+    .hex-btn-color:hover:before,
+    .hex-btn-color:hover:after {
+        background: white;
+    }
+
+    .hex-btn:hover {
+        color: #000;
+        transform: scale(1.1)
+    }
+
+    /* Just for presentation */
+    body {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: aliceblue;
+    }

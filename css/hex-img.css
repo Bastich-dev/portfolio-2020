@@ -1,0 +1,132 @@
+
+:root {
+    --width: 180px;
+    --width2: 180px;
+}
+
+.hexagon-image {
+    width: var(--width); 
+    height: calc( var(--width) / 100 * 173.2 ); /* 173.2% of width */
+    position:absolute;   
+    /* to elimnate the interstice between the edges (the interstices are very tiny and not too visible to the eyes
+       but they do exist, especially become more visible with larger zoom scale) we have to set the scale
+       transform with the maximum scale ratio of 0.8 (so the actual width and height will be 0.8 of what you set)
+       The margin-left and margin-right are of course 0.8 of 50% (at scale(1), they are 50% of the width) 
+       which is about 40% of the width you set
+    */
+top:-60px;
+    -webkit-transform-origin:left top;
+    -moz-transform-origin:left top;
+    -ms-transform-origin:left top;
+    transform-origin:left top;
+    /* here we set the scale less than 0.8 to make scaling effect up to 0.8 on hover */
+    -webkit-transform:scale(1); 
+    -moz-transform:scale(1); 
+    -ms-transform:scale(1); 
+    transform:scale(1);
+    transition:all 0.2s;
+
+}
+
+
+.hexagon-image2 {
+    width: var(--width2); 
+    height: calc( var(--width2) / 100 * 173.2 ); /* 173.2% of width */
+    position:absolute;   
+    /* to elimnate the interstice between the edges (the interstices are very tiny and not too visible to the eyes
+       but they do exist, especially become more visible with larger zoom scale) we have to set the scale
+       transform with the maximum scale ratio of 0.8 (so the actual width and height will be 0.8 of what you set)
+       The margin-left and margin-right are of course 0.8 of 50% (at scale(1), they are 50% of the width) 
+       which is about 40% of the width you set
+    */
+top:-60px;
+    -webkit-transform-origin:left top;
+    -moz-transform-origin:left top;
+    -ms-transform-origin:left top;
+    transform-origin:left top;
+    /* here we set the scale less than 0.8 to make scaling effect up to 0.8 on hover */
+    -webkit-transform:scale(1); 
+    -moz-transform:scale(1); 
+    -ms-transform:scale(1); 
+    transform:scale(1);
+    transition:all 0.3s;
+
+}
+/* the shapes to clip the background and render border*/
+.hexagon-image > * {
+    position:absolute;
+    width:100%;
+    height:100%;
+    left: 0;
+    top:0;
+    overflow:hidden;
+    /* instead of editing border-width for each rule, we just need to edit the font-size here 
+       to set the border-width, note that the minimum value should be 4px, that's because of using 
+       scale(0.6), the actual border-width is just about 2.4px, for thinner border, we need to 
+       adjust the scale.
+    */
+    font-size:4px;
+    border:1em solid white;    
+    /* border-left and border-right should have the width of 57.735% of the border-top and border-bottom */
+    border-left: 0.57735em solid transparent;
+    border-right: 0.57735em solid transparent;
+    box-sizing:border-box;    
+}
+/* the inner pseudo-elements to render background */
+.hexagon-image > *:before {
+    content:'';
+    background:url(http://placekitten.com/300/300) no-repeat center / 100%;
+    width:200%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:-50%;
+}
+.hexagon-image > .hex0 {    
+    /* this helps eliminate the interstices a little */
+    z-index:-1;    
+}
+.hexagon-image > :not(.hex0) {
+    /* the border-top and border-bottom of the rotated shapes will have their actual values 
+       less than the value set in non-rotated shape, so we need to adjust them a little 
+       This is derived from experiment (trial and error).
+    */
+    border-top-width:1.1em;
+    border-bottom-width:1.15em;
+}
+.hexagon-image > .hex-60 {
+    -webkit-transform:rotate3d(0,0,1,-60deg);     
+    -moz-transform:rotate3d(0,0,1,-60deg);  
+    -ms-transform:rotate3d(0,0,1,-60deg);  
+    transform:rotate3d(0,0,1,-60deg);  
+}
+.hexagon-image > .hex60 {
+    -webkit-transform:rotate3d(0,0,1,60deg); 
+    -moz-transform:rotate3d(0,0,1,60deg);
+    -ms-transform:rotate3d(0,0,1,60deg);
+    transform:rotate3d(0,0,1,60deg);
+    /* this is also to help eliminate the interspices 
+       for unclear reason, we have to do this, it's all about epxeriment.
+    */
+    border-left-width:0.6em;
+    border-right-width:0.63em;
+}
+.hexagon-image > .hex-60:before {
+    -webkit-transform:rotate3d(0,0,1,60deg);
+    -moz-transform:rotate3d(0,0,1,60deg);
+    -ms-transform:rotate3d(0,0,1,60deg);
+    transform:rotate3d(0,0,1,60deg);
+}
+.hexagon-image > .hex60:before {
+    -webkit-transform:rotate3d(0,0,1,-60deg);
+    -moz-transform:rotate3d(0,0,1,-60deg);
+    -ms-transform:rotate3d(0,0,1,-60deg);
+    transform:rotate3d(0,0,1,-60deg);
+}
+.hexagon-image:hover > * {
+    border-top-color:#dc3545;    
+    border-bottom-color:#dc3545;
+}
+.hexagon-image:hover {
+    /* --width: 200px; */
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+		.button {
+
+
+			position: relative;
+			display: block;
+			background: transparent;
+			width: 200px;
+			height: 60px;
+			line-height: 60px;
+			text-align: center;
+			font-size: 15px;
+			text-decoration: none;
+			text-transform: uppercase;
+			margin: 40px auto;
+			transition: transform 0.1s;
+
+		}
+
+		.button:hover {
+			transform: scale(1.2)
+		}
+
+		.button:before,
+		.button:after {
+			width: 200px;
+			left: 0px;
+			height: 27px;
+			z-index: -1;
+		}
+
+		.color {
+
+			color: white;
+		}
+
+
+
+		.color:before,
+		.color:after {
+			background-color: black;
+			border: 3px solid white;
+
+		}
+
+		.button:before {
+			position: absolute;
+			content: '';
+			border-bottom: none;
+			-webkit-transform: perspective(15px) rotateX(5deg);
+			-moz-transform: perspective(15px) rotateX(5deg);
+			transform: perspective(15px) rotateX(5deg);
+		}
+
+		.button:after {
+			position: absolute;
+			top: 32px;
+			content: '';
+			border-top: none;
+			-webkit-transform: perspective(15px) rotateX(-5deg);
+			-moz-transform: perspective(15px) rotateX(-5deg);
+			transform: perspective(15px) rotateX(-5deg);
+		}
+
+
+		.color:hover:before,
+		.color:hover:after {
+
+			background: white;
+
+		}
+
+		.button:hover {
+			color: black;
+		}
+	</style>
+
+</head>
+
+<body style="background-color: grey;">
+	<div class="hexagon">hh</div>
+	<a href="#" class="button color">Discover my projects</a>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+	<script src="./button.js"></script>
+
+
+
+</body>
+
+</html>

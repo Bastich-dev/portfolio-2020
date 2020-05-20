@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WorkShop Leap</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <audio src="./assets/sounds/ambiance_2.mp3" hidden="true" id="music"></audio>
+
+    <div class="presentation-control">
+        <div class="contour-control">
+            <p>Pinch with your 2 hands to change the size of cube</p>
+            <p>Grab to take the cube on your hand</p>
+            <p>Move your hands forward to throw your cube</p>
+            <p>Make circle to reinitialise the cube position</p>
+            <p>Swipe up to show menu</p>
+            <p>Choose the color with your index</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/leapjs@0.6.4/leap-0.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"
+        integrity="sha256-VOi2Rul9rvLP88evmfzQ/naNx059RkmPaKhpx9ydyQY=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/three@0.85.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.85.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>

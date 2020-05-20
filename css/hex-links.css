@@ -1,0 +1,60 @@
+
+.hexagon-llink-wrapper {
+    display: flex;
+    text-align: initial;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    transform: scale(0.7);
+  }
+  
+  .hexagon-llink {
+    position: relative;
+    width: 46%;
+    height: 80%;
+    margin: auto;
+    color: white;
+    background: linear-gradient(-180deg, #cfc2c5, #544849);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    transition: 0.5s;
+  }
+  
+  .hexagon-llink-i {
+    z-index: 1;
+    margin: auto;
+    font-size: 50px;
+color: linear-gradient(45deg, #544849, #544849);
+  }
+  
+  .hexagon-llink:before,
+  .hexagon-llink:after {
+    position: absolute;
+    content: "";
+    background: inherit;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    transition: 0.5s;
+    transform-origin: center;
+  }
+  .hexagon-llink:before {
+    transform: rotateZ(60deg);
+  }
+  .hexagon-llink:after {
+    transform: rotateZ(-60deg);
+  }
+  .hexagon-llink:hover {
+    border-radius: 50px;
+    transition: 0.5s;
+  }
+  .hexagon-llink:hover:before {
+    border-radius: 50px;
+    transition: 0.5s;
+  }
+  .hexagon-llink:hover:after {
+    border-radius: 50px;
+    transition: 0.5s;
+  }
+  

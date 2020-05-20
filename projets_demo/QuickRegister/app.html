@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bible LeStream</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"
+        type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/notyf@3.6.0/notyf.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/amsify.suggestags.css">
+
+
+
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/semaine.css" rel="stylesheet">
+
+    <style>
+        .nav-link_click:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper" class="bg-primary">
+
+        <!-- Prevent Fixed position -->
+        <ul class="d-none d-md-flex d-sm-flex d-lg-flex sidebar sidebar-dark" style="visibility: hidden;">
+            <li class="nav-item">
+                <div class="nav-link">
+                </div>
+            </li>
+        </ul>
+        <!-- Sidebar lg -->
+        <ul class="navbar-nav  d-flex  sidebar sidebar-dark accordion  " id="accordionSidebar"
+            style="position: fixed; background-color: #12193c">
+
+            <!-- Sidebar - Brand -->
+            <a href="app.html" class="sidebar-brand d-flex align-items-center justify-content-center">
+                <div class="sidebar-brand-icon">
+                    <img src="assets/MERMPZts_400x400.png" style="max-width: 100%; max-height: 100%;" alt="">
+                </div>
+                <div class="sidebar-brand-text mx-3">Bible LeStream </div>
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html" id='logout'>
+                    <i class="fas fa-fw fa-sign-in-alt"></i>
+                    <span>Déconnexion</span></a>
+                <input type="text" value='admins' class="d-none" id='poste_id'>
+            </li>
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading h3">
+                Interface
+            </div>
+            <li class="nav-item">
+                <b class="nav-link collapsed nav-link_click" id='href-ajouter_emission'>
+                    <i class="fas fa-fw fa-plus"></i>
+                    <span>Ajouter émission</span>
+                </b>
+            </li>
+            <li class="nav-item">
+                <b class="nav-link collapsed nav-link_click" id='href-rechercher_emission'>
+                    <i class="fas fa-fw fa-search"></i>
+                    <span>Rechercher émission</span>
+                </b>
+            </li>
+            <li class="nav-item">
+                <b class="nav-link collapsed nav-link_click" id='href-semaines'>
+                    <i class="fas fa-fw fa-calendar-alt"></i>
+                    <span>Semaines</span>
+                </b>
+            </li>
+            <li class="nav-item">
+                <b class="nav-link collapsed nav-link_click" id='href-talents'>
+                    <i class="fas fa-fw fa-user-clock"></i>
+                    <span>Heures talent</span>
+                </b>
+            </li>
+            <li class="nav-item">
+                <b class="nav-link collapsed nav-link_click" id='href-champs'>
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Champs auto</span>
+                </b>
+            </li>
+            <li class="nav-item">
+                <b class="nav-link collapsed nav-link_click" id='href-presets'>
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Présets</span>
+                </b>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+
+
+
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column bg-primary">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav id='topbar_nav' class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow   "
+                    style="background-color: #12193c">
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item ">
+                            <span class="mr-2  d-lg-inline  text-white " style="font-size: calc(1.5vw + 1.5vh);">
+                                Administrateur
+                            </span>
+                        </li>
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <span class="mr-3 d-lg-nline  text-white lg-h2" style="font-size: calc(1.5vw + 1.5vh);">
+                                LeStream
+                            </span>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid " style="overflow-x: scroll;">
+
+                    <div class="container">
+
+
+                        <div class="row">
+
+                            <div class="col-12">
+                                <!-- START CARD AJOUTER EMISSION -->
+                                <div class="card shadow mb-4 d-flex section" id='card_ajouter_emission'>
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h3 class="m-0 font-weight-bold text-white text-uppercase">Ajouter
+                                            une émission
+                                        </h3>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                        <div class="form-group  col-lg-5 col-sm-8 ml-3 mt-3 mr-0 mb-3 ">
+                                            <b class="ml-2 h3">Sélectionner préset</b>
+                                            <select name="use_preset" class="mt-1 ml-2 form-control form-control-user"
+                                                style="height: 50px;">
+                                                <option value=""></option>
+
+                                            </select>
+                                        </div>
+                                        <div class="btn btn-success mt-5 align-items-center justify-content-center d-flex col-1"
+                                            id='btn_use_preset' style="height: 60px; "> <i class="fas fa-forward"></i>
+                                        </div>
+
+                                    </div>
+
+
+                                    <form id='ajouter_emission' action="">
+                                        <div class="row justify-content-around mb-3">
+
+                                            <!-- DATE INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Date</b>
+                                                <input type="date" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='date' required>
+                                            </div>
+
+                                            <!-- SEMAINE INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Semaine</b>
+                                                <input type="number" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='semaine' disabled>
+                                            </div>
+
+                                            <!-- JOUR INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Jour</b>
+                                                <select name="jour" class="mt-1 ml-2 form-control form-control-user"
+                                                    disabled>
+                                                    <option value=""></option>
+                                                    <option value="Lundi">Lundi</option>
+                                                    <option value="Mardi">Mardi</option>
+                                                    <option value="Mercredi">Mercredi</option>
+                                                    <option value="Jeudi">Jeudi</option>
+                                                    <option value="Vendredi">Vendredi</option>
+                                                    <option value="Samedi">Samedi</option>
+                                                    <option value="Dimanche">Dimanche</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- EMISSION INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Emission</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Emission' placeholder="" required list='datalist_emission'>
+                                            </div>
+
+                                            <!-- STUDIO INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Studio</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Studio' placeholder="" required list='datalist_studio'>
+                                            </div>
+
+                                            <!-- DIFFUSION INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Diffusion</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Diffusion' placeholder="" required list='datalist_diffusion'>
+                                            </div>
+
+                                            <!-- TALENTS INPUT -->
+
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Talents</b> <br>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Talents' placeholder="" required>
+                                            </div>
+
+
+                                            <!-- HORAIRE DEBUT INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Horaire début</b>
+                                                <div class="row justify-content-center">
+                                                    <select style="width: 40%;" name='hr_debut_1'
+                                                        class="mt-1 ml-2 form-control form-control-user hr" required>
+                                                        <option value=""></option>
+                                                    </select>
+                                                    </10>
+                                                    <select style="width: 40%;" name='hr_debut_2'
+                                                        class="mt-1 ml-2 form-control form-control-user min" required>
+                                                        <option value=""></option>
+                                                    </select>
+                                                    </10>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- HORAIRE FIN INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Horaire fin</b>
+                                                <div class="row justify-content-center">
+                                                    <select style="width: 40%;" name='hr_fin_1'
+                                                        class="mt-1 ml-2 form-control form-control-user hr" required>
+                                                        <option value=""></option>
+                                                    </select>
+                                                    </10>
+                                                    <select style="width: 40%;" name='hr_fin_2'
+                                                        class="mt-1 ml-2 form-control form-control-user min" required>
+                                                        <option value=""></option>
+                                                    </select>
+                                                    </10>
+                                                </div>
+                                            </div>
+
+                                            <!-- THEMES INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Thème ou consoles</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Theme' placeholder="" required>
+                                            </div>
+
+                                            <!-- PRODUCTEUR INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Producteur</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Producteur' placeholder="" list='datalist_producteur'>
+                                            </div>
+
+                                            <!-- REALISATION INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Réalisation</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Realisation' placeholder="" list='datalist_realisation'>
+                                            </div>
+
+                                            <!-- GRAPHISME INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Graphisme</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Graphisme' placeholder="" list='datalist_graphisme'>
+                                            </div>
+
+                                            <!-- DECORS INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Décors</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Decors' placeholder="" list='datalist_decors'>
+                                            </div>
+
+                                            <!-- SON INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Son</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Son' placeholder="" list='datalist_son'>
+                                            </div>
+
+                                            <!-- ASSIST VIDEO INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Assistance vidéo</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Assist_video' list='datalist_assist_video'>
+                                            </div>
+
+                                            <!-- CONSIGNES INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Consignes</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Consignes' list='datalist_consignes'>
+                                            </div>
+
+                                            <!-- CATHERING & TRANSPORT  INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 row ">
+
+                                                <div class='col-6'>
+                                                    <b class="ml-2">Cathering</b> <br>
+                                                    <input type="checkbox"
+                                                        class="mt-1 ml-2 form-control form-control-user"
+                                                        name='cathering'>
+                                                </div>
+                                                <div class='col-6'>
+                                                    <b class="ml-2">Transport</b> <br>
+                                                    <input type="checkbox"
+                                                        class="mt-1 ml-2 form-control form-control-user"
+                                                        name='transport'>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row justify-content-around m-5">
+                                            <input type="submit" class="p-3 mb-2 col-lg-5 col-sm-12 btn btn-success "
+                                                value='Ajouter Emission'>
+                                            <input type="button" class="p-3 mb-2 col-lg-5 col-sm-12 btn btn-danger "
+                                                value='Vider champs' id='viderchamps'>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                                <!-- END CARD AJOUTER EMISSION -->
+
+                                <!-- START CARD RECHERCHER EMISSION -->
+
+                                <div class="card shadow mb-4 d-none section " id='card_rechercher_emission'>
+                                    <div class="card-header py-3">
+                                        <h3 class="m-0 font-weight-bold text-white text-uppercase">Rechercher une
+                                            émission
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="EmissionsTable" width="100%"
+                                                cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Editer </th>
+                                                        <th>Date</th>
+                                                        <th>Semaine</th>
+                                                        <th>Jour</th>
+                                                        <th>Emission</th>
+                                                        <th>Studio </th>
+                                                        <th>Diffusion</th>
+                                                        <th>Talents</th>
+                                                        <th>Horaire début</th>
+                                                        <th>Horaire Fin</th>
+                                                        <th>Theme ou consoles</th>
+                                                        <th>Producteur</th>
+                                                        <th>Réalisation</th>
+                                                        <th>Graphisme</th>
+                                                        <th>Décors</th>
+                                                        <th>Son</th>
+                                                        <th>Assistance vidéo</th>
+                                                        <th>Consignes</th>
+                                                        <th>Cathering</th>
+                                                        <th>Transport</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tbody>
+
+                                                    </tbody>
+                                            </table>
+                                            <b href="#addCours"
+                                                class="nav-link_click btn btn-success btn-icon-split m-3 "
+                                                id='hrer-ajouter_emission'>
+                                                <span class="icon text-white-50 d-flex align-items-center">
+                                                    <i class="fas fa-plus "></i>
+                                                </span>
+                                                <span class="text " style="font-size: calc(1vw + 1vh);">Ajouter une
+                                                    émission
+                                                </span>
+                                            </b>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- END CARD RECHERCHER EMISSION -->
+
+                                <!-- START CARD SEMAINE -->
+                                <div class="d-none section" id='card_semaines'>
+
+                                    <div class="wrap-table100 ">
+                                        <div class=""
+                                            style="padding-top: 15px; width: 650px;  background-color: #36304a; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                                            <b class="h3 ml-4 font-weight-bold text-white text-uppercase"> SEMAINE
+                                                <select name="nb_semaine" class="h4 ml-2 mr-2  " style="width: 70px;">
+                                                    <option value=""></option>
+                                                </select>
+                                                du 04 Mais
+                                                au
+                                                21 Mai</b>
+                                        </div>
+                                        <div class="table100 ver1 mb-5 mr-5 ">
+                                            <table data-vertable="ver1">
+                                                <thead>
+                                                    <tr class="row100 head">
+                                                        <th class="column100 column1">
+                                                            Date
+                                                        </th>
+                                                        <th class="column100 column2" data-column="column2">Jour</th>
+                                                        <th class="column100 column3" data-column="column3">Emission
+                                                        </th>
+                                                        <th class="column100 column4" data-column="column4">Studio</th>
+                                                        <th class="column100 column5" data-column="column5">Diffusion
+                                                        </th>
+                                                        <th class="column100 column6" data-column="column6">Talents
+                                                        </th>
+                                                        <th class="column100 column7" data-column="column7">Début</th>
+                                                        <th class="column100 column8" data-column="column8">Fin
+                                                        </th>
+                                                        <th class="column100 column1" data-column="column1">Thème ou
+                                                            console</th>
+                                                        <th class="column100 column2" data-column="column2">Producteur
+                                                        </th>
+                                                        <th class="column100 column3" data-column="column3">Réalisation
+                                                        </th>
+                                                        <th class="column100 column4" data-column="column4">Graphisme
+                                                        </th>
+                                                        <th class="column100 column5" data-column="column5">Décors
+                                                        </th>
+                                                        <th class="column100 column6" data-column="column6">Son
+                                                        </th>
+                                                        <th class="column100 column7" data-column="column7">Assisstance
+                                                            vidéo</th>
+                                                        <th class="column100 column8" data-column="column8">Consignes
+                                                        </th>
+                                                        <th class="column100 column7" data-column="column7">Cathering
+                                                        </th>
+                                                        <th class="column100 column8" data-column="column8">Transport
+                                                    </tr>
+                                                </thead>
+                                                <tbody id='table_semaine'>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                    <div style="width: 500px; height: 1px;;"></div>
+
+                                </div>
+                                <!-- END CARD SEMAINE  -->
+
+                                <!-- START CARD HEURES TALENT -->
+                                <div class="card shadow mb-4 d-none section " id='card_talents'>
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h3 class="m-0 font-weight-bold text-white text-uppercase">Heures talent
+                                        </h3>
+                                    </div>
+                                    <form action="" id='recherche_talents'>
+
+
+                                        <div class="row justify-content-around mt-3">
+                                            <!-- TALENT INPUT -->
+                                            <div class="form-group mr-5 col-lg-5 col-sm-8 m-3 ">
+                                                <b class="ml-2 h3">Sélectionner talent</b>
+
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='Talents_search' placeholder="" list="datalist_talents"
+                                                    required>
+
+                                            </div>
+                                            <!-- MOIS INPUT -->
+                                            <div class="form-group mr-5 col-lg-5 col-sm-8 m-3 ">
+                                                <b class="ml-2 h3">Sélectionner Mois </b>
+                                                <select name="mois" class="mt-1 ml-2 form-control form-control-user"
+                                                    style="height: 50px;" required>
+                                                    <option value=""></option>
+                                                    <option value="01">Janvier</option>
+                                                    <option value="02">Février</option>
+                                                    <option value="03">Mars</option>
+                                                    <option value="04">Avril</option>
+                                                    <option value="05">Mai</option>
+                                                    <option value="06">Juin</option>
+                                                    <option value="07">Juillet</option>
+                                                    <option value="08">Aout</option>
+                                                    <option value="09">Septembre</option>
+                                                    <option value="10">Octobre</option>
+                                                    <option value="11">Novembre</option>
+                                                    <option value="12">Décembre</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-around m-4">
+                                            <input type="submit" class="p-3 mb-2 col-lg-5 col-sm-12 btn btn-success "
+                                                value='Rechercher talent'>
+                                        </div>
+                                    </form>
+
+
+                                    <div class="row justify-content-center ">
+                                        <div class="form-group mr-5  m-3 ">
+                                            <p class="ml-2 h2">Temps de travail ce mois ci : <b id='time_month'></b>
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+                                <!-- END CARD HEURES TALENT -->
+
+                                <!-- START CARD CHAMPS AUTO -->
+                                <div class="card shadow mb-4 d-none section " id='card_champs'>
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h3 class="m-0 font-weight-bold text-white text-uppercase">Champs auotmatiques
+                                        </h3>
+                                    </div>
+
+
+                                    <div class="row justify-content-around mb-5 mt-3">
+                                        <!-- TALENT INPUT -->
+                                        <div class="form-group mr-5 col-lg-5 col-sm-8 m-3 ">
+                                            <b class="ml-2 h3">Sélectionner champ</b>
+                                            <select name="select_champs"
+                                                class="mt-1 ml-2 form-control form-control-user" style="height: 50px;"
+                                                required>
+                                                <option value=""></option>
+                                                <option value="Emission">Emissions</option>
+                                                <option value="Studio">Studios</option>
+                                                <option value="Diffusion">Diffusions</option>
+                                                <option value="Talents">Talents</option>
+                                                <option value="Theme">Thème ou consoles</option>
+                                                <option value="Producteur">Producteur</option>
+                                                <option value="Realisation">Réalisation</option>
+                                                <option value="Graphisme">Graphisme</option>
+                                                <option value="Decors">Décors</option>
+                                                <option value="Son">Son</option>
+                                                <option value="Assist_video">Assistance vidéo</option>
+                                                <option value="Consignes">Consignes</option>
+                                            </select>
+                                        </div>
+
+
+
+
+
+
+
+                                    </div>
+                                    <div class=" row justify-content-center mb-5" id='affiche_preset'>
+                                    </div>
+                                    <div class=" row justify-content-center mb-5 " id='update_preset'>
+                                        <input type="button" class="p-3 mb-2 col-lg-5 col-sm-8 btn btn-success "
+                                            id='update_champs' value='Valider modifications'>
+                                    </div>
+                                    <div class=" row justify-content-center mb-5 " id='ajoute_preset'>
+                                        <div class="form-group col-lg-7 col-sm-8 mb-2 d-flex ">
+                                            <input type="text"
+                                                class="mt-1 ml-2 form-control form-control-user text-center"
+                                                name='champ_add' required>
+                                            <i class="fas fa-plus-circle fa-3x ml-3 text-success"
+                                                style="float: right;   cursor: pointer;" id='add_champ'></i>
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+                                <!-- END CARD CHAMPS AUTO -->
+
+                                <!-- START CARD PRESETS -->
+                                <div class="card shadow mb-5 d-none section pb-4 " id='card_presets'>
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h3 class="m-0 font-weight-bold text-white text-uppercase">Présets
+                                        </h3>
+                                    </div>
+                                    <form action="" id='form_preset'>
+
+
+                                        <div class="row justify-content-around">
+                                            <!-- TALENT INPUT -->
+                                            <div class="form-group  col-lg-5 col-sm-8 ml-3 mt-3 mr-0 mb-3 ">
+                                                <b class="ml-2 h3">Sélectionner préset</b>
+                                                <select name="select_preset"
+                                                    class="mt-1 ml-2 form-control form-control-user"
+                                                    style="height: 50px;" required>
+                                                    <option value=""></option>
+
+                                                </select>
+
+                                            </div>
+                                            <div class="form-group  col-lg-5 col-sm-8 ml-3 mt-3 mr-0 mb-3 ">
+                                                <b class="ml-2 h3">Nom préset</b>
+                                                <input name="preset_nom"
+                                                    class="mt-1 ml-2 form-control form-control-user"
+                                                    style="height: 50px;" required>
+
+
+
+                                            </div>
+
+
+                                            <div class=" col-12 row justify-content-around m-5">
+
+                                                <input id='edit_preset' type="submit"
+                                                    class="col-lg-3 col-sm-8 mt-2 btn btn-success " disabled
+                                                    style="height: 60px;" value='Valider modifications'>
+                                                <input id='add_preset' type="button"
+                                                    class="col-lg-3 col-sm-8 mt-2 btn btn-success "
+                                                    style="height: 60px;" value='Nouveau préset'>
+                                                <input id='delete_preset' type="button"
+                                                    class="col-lg-3 col-sm-8 mt-2   btn btn-danger " disabled
+                                                    style="height: 60px;" value='Supprimer préset'>
+
+                                            </div>
+
+
+
+
+
+
+
+                                            <!-- EMISSION INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Emission</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_emission' placeholder="" list='datalist_emission'>
+                                            </div>
+
+                                            <!-- STUDIO INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Studio</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_studio' placeholder="" list='datalist_studio'>
+                                            </div>
+
+                                            <!-- DIFFUSION INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Diffusion</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_diffusion' placeholder="" list='datalist_diffusion'>
+                                            </div>
+
+                                            <!-- TALENTS INPUT -->
+
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Talents</b> <br>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_talents' placeholder="">
+                                            </div>
+
+
+                                            <!-- HORAIRE DEBUT INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Horaire début</b>
+                                                <div class="row justify-content-center">
+                                                    <select style="width: 40%;" name='preset_hrd_1'
+                                                        class="mt-1 ml-2 form-control form-control-user hr">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    </10>
+                                                    <select style="width: 40%;" name='preset_hrd_2'
+                                                        class="mt-1 ml-2 form-control form-control-user min">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    </10>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- HORAIRE FIN INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Horaire fin</b>
+                                                <div class="row justify-content-center">
+                                                    <select style="width: 40%;" name='preset_hrf_1'
+                                                        class="mt-1 ml-2 form-control form-control-user hr">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    </10>
+                                                    <select style="width: 40%;" name='preset_hrf_2'
+                                                        class="mt-1 ml-2 form-control form-control-user min">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    </10>
+                                                </div>
+                                            </div>
+
+                                            <!-- THEMES INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Thème ou consoles</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_theme' placeholder="">
+                                            </div>
+
+                                            <!-- PRODUCTEUR INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Producteur</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_producteur' placeholder="" list='datalist_prodcuteur'>
+                                            </div>
+
+                                            <!-- REALISATION INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Réalisation</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_realisation' placeholder=""
+                                                    list='datalist_realisation'>
+                                            </div>
+
+                                            <!-- GRAPHISME INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Graphisme</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_graphisme' placeholder="" list='datalist_graphisme'>
+                                            </div>
+
+                                            <!-- DECORS INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Décors</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_decors' placeholder="" list='datalist_decors'>
+                                            </div>
+
+                                            <!-- SON INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Son</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_son' placeholder="" list='datalist_son'>
+                                            </div>
+
+                                            <!-- ASSIST VIDEO INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Assistance vidéo</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_assist_video' list='datalist_assist_video'>
+                                            </div>
+
+                                            <!-- CONSIGNES INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 ">
+                                                <b class="ml-2">Consignes</b>
+                                                <input type="text" class="mt-1 ml-2 form-control form-control-user"
+                                                    name='preset_consignes' list='datalist_consignes'>
+                                            </div>
+
+
+                                            <!-- CATHERING & TRANSPORT  INPUT -->
+                                            <div class="form-group mr-5 col-lg-3 col-sm-8 m-3 row ">
+
+                                                <div class='col-6'>
+                                                    <b class="ml-2">Cathering</b> <br>
+                                                    <input type="checkbox"
+                                                        class="mt-1 ml-2 form-control form-control-user"
+                                                        name='preset_cathering'>
+                                                </div>
+                                                <div class='col-6'>
+                                                    <b class="ml-2">Transport</b> <br>
+                                                    <input type="checkbox"
+                                                        class="mt-1 ml-2 form-control form-control-user"
+                                                        name='preset_transport'>
+                                                </div>
+
+                                            </div>
+                                    </form>
+                                </div>
+                                <!-- END CARD PRESETS -->
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-primary">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto text-white">
+                            <span>Copyright &copy; Bastos LeStream 2020</span>
+                            <br>
+                            <br>
+                            <span> <a href="mentions.html" class="text-white">Mentions légales</a></span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+
+        <div class="d-none" id='datalists'>
+
+            <datalist id="datalist_talents"> </datalist>
+            <datalist id="datalist_emission"> </datalist>
+            <datalist id="datalist_studio"> </datalist>
+            <datalist id="datalist_diffusion"> </datalist>
+            <datalist id="datalist_producteur"> </datalist>
+            <datalist id="datalist_realisation"> </datalist>
+            <datalist id="datalist_graphisme"> </datalist>
+            <datalist id="datalist_decors"> </datalist>
+            <datalist id="datalist_son"> </datalist>
+            <datalist id="datalist_assist_video"> </datalist>
+            <datalist id="datalist_consignes"> </datalist>
+        </div>
+
+
+
+        <audio id='sound-success'>
+            <source src="Sounds/success.mp3" />
+        </audio>
+        <audio id='sound-error'>
+            <source src="Sounds/error.mp3" />
+        </audio>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!-- Firebase Cloud Firestore -->
+        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.2-0/firebase-auth.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3.6.0/notyf.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js'></script>
+
+        <script src="js/jquery.dataTables.js"></script>
+        <script src="js/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script type="text/javascript" src="js/jquery.amsify.suggestags.js"></script>
+        <script src="js/sb-admin-2.min.js"></script>
+        <script src='js/all_tools.js'></script>
+        <script src='js/ajouter_emission.js'></script>
+
+
+        <script src='js/tags.js'></script>
+        <script src='js/presets.js'></script>
+        <script src='js/datalists.js'></script>
+        <script src='js/semaine.js'></script>
+
+
+
+</body>
+
+</html>
