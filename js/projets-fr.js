@@ -89,7 +89,16 @@ export const projets_fr = [
             tools.firebase,
         ],
     },
-
+    {
+        titre: "Art.Space ",
+        presentation: "Site web",
+        image: "https://eval-em-mars-2021.netlify.app/assets/hero-tour.jpg",
+        github: "",
+        demo: "https://eval-em-mars-2021.netlify.app/tour.html",
+        description:
+            "Implémentation d'une maquette uniquement avec HTML, CSS et Javascript. SEO friendly et animations grâce à une librairie. ( Seulement les pages /tour.html et /price.html) ",
+        tools: [tools.html, tools.css, tools.javascript],
+    },
     {
         titre: "Gigaton - Pearl Jam ",
         presentation: "Site web",
