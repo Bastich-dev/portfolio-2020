@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="player">
+        <div id="info" class="info">
+            <span class="artist">Pearl Jam - Gigaton</span>
+            <span class="name">Who ever said</span>
+            <div class="progress-bar">
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div id="control-panel" class="control-panel">
+            <div class="album-art"></div>
+            <div class="controls">
+                <div class="prev"></div>
+                <div id="play" class="play"></div>
+                <div class="next"></div>
+                <div class="sound"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="slider-wrapper" style="visibility: hidden;" id='volume'>
+        <input type="range" min="0" max="10" value="5" step="1" id="change_volume">
+        <audio id='song' src="Never.mp3">
+            Your browser does not support the
+            <code>audio</code> element.
+        </audio>
+    </div>
+
+
+
+
+    <script src='script.js'></script>
+</body>
+
+</html>
