@@ -97,7 +97,7 @@ export const projets_fr = [
         demo: "https://eval-em-mars-2021.netlify.app/tour.html",
         description:
             "Implémentation d'une maquette uniquement avec HTML, CSS et Javascript. SEO friendly et animations grâce à une librairie. ( Seulement les pages /tour.html et /price.html) ",
-        tools: [tools.html, tools.css, tools.javascript],
+        tools: [tools.html, tools.css, tools.javascript, tools.netlify],
     },
     {
         titre: "Gigaton - Pearl Jam ",
