@@ -135,9 +135,9 @@ export const ideas_fr = [
     {
         titre: "Pochette Vinyl 3D",
         presentation: "Model 3D",
-        image: "projets_demo/pochette/pochette.JPG",
+        image: "projets_demo/vinyl/pochette.JPG",
         github: "",
-        demo: "projets_demo/pochette/index.html",
+        demo: "projets_demo/vinyl/index.html",
         description:
             "Pochette d'album vinyl en 3D, réalisé pour un projet de promotion du nouvel album de Pearl Jam 'Gigaton' . Modèle réalisé avec Cinéma 4D puis intégration dans le navigateur avec Three.js.",
         tools: [tools.cinema4d, tools.three],
