@@ -60,7 +60,7 @@ export const projets_fr = [
     {
         titre: "Paris events",
         presentation: "Site web",
-        image: "https://cdn.statically.io/img/wallpapercart.com/wp-content/uploads/2019/03/Paris-Wallpapers-The-Romance-Beneath-The-City-Lights.jpg?quality=100&f=auto",
+        image: "https://wallpaperaccess.com/full/316659.jpg",
         github: "",
         demo: "https://em-paris-events.vercel.app/",
         description:
